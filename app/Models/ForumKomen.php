@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Forum extends Model
+class ForumKomen extends Model
 {
     use HasFactory;
-    protected $table = 'forum';
-    protected $fillable = ['konten_forum', 'user_id', 'like', 'show', 'share'];
+    protected $table = 'forum_komen';
+    protected $fillable = ['user_id', 'forum_id', 'komen_forum'];
 
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function forumKomen()
+    public function forum()
     {
-        return $this->hasMany(ForumKomen::class, 'forum_id');
+        return $this->belongsTo(Forum::class, 'forum_id');
     }
 }
