@@ -32,8 +32,8 @@ class AuthenticationController extends Controller
             $token = $user->createToken($request->email)->plainTextToken;
 
             return response()->json([
-                "message" => "Login Berhasil",
-                "data" => [
+                'message' => 'Login Berhasil',
+                'data' => [
                     'user' => new UserResource($user),
                     'token' => $token,
                 ],
@@ -47,7 +47,7 @@ class AuthenticationController extends Controller
             ->currentAccessToken()
             ->delete();
         return response()->json([
-            "message" => "Success Logout",
+            'message' => 'Success Logout',
         ]);
     }
 
@@ -61,19 +61,16 @@ class AuthenticationController extends Controller
     {
         $validate = Validator::make($request->all(), [
             'name' => ['required'],
-            'email' => ['required', 'email'],
-            'nomor_hp' => ['required'],
-            'foto' => ['required','mimes:png,jpg,jpeg'],
+            'email' => ['required', 'email', 'unique:users'],
+            'nomor_hp' => ['required', 'unique:users'],
+            'foto' => ['required', 'mimes:png,jpg,jpeg'],
             'password' => ['required', 'min:8'],
         ]);
         if ($validate->fails()) {
-            return response()->validation($validate->messages());
+            return response()->json($validate->messages()->first(), 402);
         } else {
             $file = $request->file('foto');
-            $fileUrl = Storage::disk('public')->putFile(
-                'user',
-                $file
-            );
+            $fileUrl = Storage::disk('public')->putFile('user', $file);
 
             $register = User::create([
                 'name' => $request->name,
@@ -84,7 +81,10 @@ class AuthenticationController extends Controller
                 'foto' => $fileUrl,
             ]);
 
-            return response()->success("Selemat Akun ada berhasil dibuat, silahkan login..", new UserResource($register));
+            return response()->success(
+                'Selemat Akun ada berhasil dibuat, silahkan login..',
+                new UserResource($register)
+            );
         }
     }
 }
