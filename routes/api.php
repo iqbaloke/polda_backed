@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthenticationController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ForumKomenController;
+use App\Http\Controllers\GaleriController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,14 @@ Route::prefix('forum')->group(function () {
         Route::delete('/{forum}', [ForumController::class, 'destroy']);
     });
 });
+Route::prefix('galeri')->group(function () {
+    Route::get('/', [GaleriController::class, 'index']);
+    Route::get('/{galeri}', [GaleriController::class, 'show']);
+    Route::post('/', [GaleriController::class, 'store']);
+    Route::patch('/{galeri}', [GaleriController::class, 'update']);
+    Route::delete('/{galeri}', [GaleriController::class, 'destroy']);
+});
+
 Route::prefix('forum_komen')->group(function () {
     Route::get('/{forum}', [ForumKomenController::class, 'index']);
     Route::get('/{forum}/{forumKomen}', [ForumKomenController::class, 'show']);
