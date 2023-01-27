@@ -87,8 +87,10 @@
                                         <h6>General </h6>
                                     </div>
                                 </li>
-                                <li><a class="nav-link menu-title link-nav" href="support-ticket.html"><i
-                                            data-feather="headphones"></i><span>Support Ticket</span></a></li>
+                                <li><a class="nav-link menu-title link-nav" href="{{ route('galeri.index') }}"><i
+                                            data-feather="headphones"></i><span>Galeri</span></a></li>
+                                <li><a class="nav-link menu-title link-nav" href="{{ route('media.index') }}"><i
+                                            data-feather="headphones"></i><span>Media</span></a></li>
                             </ul>
                         </div>
                         <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
@@ -168,7 +170,6 @@
                         </div>
                     </div>
                 </div>
-                <a href="youtube.com">dadskjahk</a>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-12">

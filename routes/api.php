@@ -5,6 +5,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ForumKomenController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\MediaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +37,16 @@ Route::prefix('berita')->group(function () {
         Route::post('/', [BeritaController::class, 'store']);
         Route::patch('/{berita}', [BeritaController::class, 'update']);
         Route::delete('/{berita}', [BeritaController::class, 'destroy']);
+    });
+});
+
+Route::prefix('media')->group(function () {
+    Route::get('/', [MediaController::class, 'index']);
+    Route::get('/{media}', [MediaController::class, 'show']);
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::post('/', [MediaController::class, 'store']);
+        Route::patch('/{media}', [MediaController::class, 'update']);
+        Route::delete('/{media}', [MediaController::class, 'destroy']);
     });
 });
 
