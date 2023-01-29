@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthenticationController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\CekUmurController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ForumKomenController;
 use App\Http\Controllers\GaleriController;
@@ -48,6 +49,11 @@ Route::prefix('media')->group(function () {
         Route::patch('/{media}', [MediaController::class, 'update']);
         Route::delete('/{media}', [MediaController::class, 'destroy']);
     });
+});
+
+Route::prefix('cek_umur')->group(function () {
+    Route::get('/', [CekUmurController::class, 'index']);
+    Route::get('/{cekumur}', [CekUmurController::class, 'show']);
 });
 
 Route::prefix('forum_komen')->group(function () {

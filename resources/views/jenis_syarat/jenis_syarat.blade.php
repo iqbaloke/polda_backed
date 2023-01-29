@@ -108,11 +108,11 @@
                     <div class="page-header">
                         <div class="row">
                             <div class="col-sm-6">
-                                <h3>Gallery</h3>
+                                <h3>Jenis Syarat</h3>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                    <li class="breadcrumb-item">Gallery</li>
-                                    <li class="breadcrumb-item active">Gallery Grid</li>
+                                    <li class="breadcrumb-item">Jenis Syarat</li>
+                                    <li class="breadcrumb-item active">Jenis Syarat</li>
                                 </ol>
                             </div>
                         </div>
@@ -133,25 +133,15 @@
                                     <div class="tab-content" id="pills-tabContent">
                                         <div class="tab-pane fade show active" id="pills-input" role="tabpanel"
                                             aria-labelledby="pills-input-tab">
-                                            <form class="theme-form" method="POST" enctype="multipart/form-data"
-                                                action="{{ route('media.store') }}">
+                                            <form class="theme-form" method="POST"
+                                                action="{{ route('jenissyarat.store') }}">
                                                 @csrf
                                                 <div class="mb-3 draggable">
-                                                    <label for="input-file-1">Image</label>
-                                                    <input id="input-file-1" name="image" type="file">
-                                                </div>
-                                                <div class="mb-3 draggable">
-                                                    <label for="input-text-1">Title</label>
+                                                    <label for="input-text-1">Nama
+                                                        Jenis Pendidikan</label>
                                                     <input class="form-control btn-square" id="input-text-1"
-                                                        type="text" placeholder="Isikan Title" name="title">
-                                                </div>
-                                                <div class="mb-3 draggable">
-                                                    <label for="input-text-1">link</label>
-                                                    <Textarea class="form-control" name="link"></Textarea>
-                                                </div>
-                                                <div class="mb-3 draggable">
-                                                    <label for="input-text-1">Color</label>
-                                                    <Textarea class="form-control" name="color"></Textarea>
+                                                        type="text" placeholder="Isikan Pendidikan"
+                                                        name="name">
                                                 </div>
                                                 <button type="submit" class="btn btn-primary">Tambah data</button>
                                             </form>
@@ -167,7 +157,7 @@
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-header pb-0">
-                                    <h5>Media Pakkepo</h5>
+                                    <h5>Jenis Syarat Pakkepo</h5>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -175,37 +165,15 @@
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
-                                                    <th>Image</th>
-                                                    <th>Title</th>
-                                                    <th>link</th>
-                                                    <th>Color</th>
+                                                    <th>name</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($media as $index => $item)
+                                                @foreach ($jenissyarat as $index => $item)
                                                     <tr>
                                                         <td>{{ $index + 1 }}.</td>
-                                                        <td>
-                                                            <img style="width: 50px; height:50px; background-color:#{{ $item->color }}; padding:10px; border-radius: 10px;"
-                                                                src="{{ '/storage/' . $item->image }}"
-                                                                class="img-fluid" alt="">
-                                                        </td>
-                                                        <td>{{ $item->title }}</td>
-                                                        <td><a target="_blank"
-                                                                href="{{ $item->link }}">{{ $item->link }}</a>
-                                                        </td>
-                                                        <td>
-                                                            <div class="row d-flex">
-                                                                <div>
-                                                                    Color : {{ $item->color }}
-                                                                </div>
-                                                                <div>
-                                                                    <input type="color"
-                                                                        value="#{{ $item->color }}" disabled>
-                                                                </div>
-                                                            </div>
-                                                        </td>
+                                                        <td>{{ $item->name }}.</td>
                                                         <td>
                                                             <button class="btn btn-primary btn-sm" type="button"
                                                                 data-bs-toggle="modal"
@@ -227,49 +195,21 @@
                                                                                 aria-label="Close"></button>
                                                                         </div>
                                                                         <form
-                                                                            action="{{ route('media.update', $item->id) }}"
+                                                                            action="{{ route('jenissyarat.update', $item->id) }}"
                                                                             method="POST">
                                                                             @csrf
                                                                             @method('PATCH')
                                                                             <div class="modal-body">
                                                                                 <div class="mb-3 draggable">
-                                                                                    <label
-                                                                                        for="input-file-1">Image</label>
-                                                                                    <input id="input-file-1"
-                                                                                        name="image" type="file">
-                                                                                </div>
-                                                                                <div class="mb-3 draggable">
-                                                                                    <label
-                                                                                        for="input-text-1">Title</label>
+                                                                                    <label for="input-text-1">Nama
+                                                                                        Jenis Pendidikan</label>
                                                                                     <input
                                                                                         class="form-control btn-square"
                                                                                         id="input-text-1"
                                                                                         type="text"
-                                                                                        placeholder="Isikan Title"
-                                                                                        name="title"
-                                                                                        value="{{ old('title', $item->title) ?? '' }}">
-                                                                                </div>
-                                                                                <div class="mb-3 draggable">
-                                                                                    <label
-                                                                                        for="input-text-1">link</label>
-                                                                                    <input
-                                                                                        class="form-control btn-square"
-                                                                                        id="input-text-1"
-                                                                                        type="text"
-                                                                                        placeholder="Isikan Link"
-                                                                                        name="link"
-                                                                                        value="{{ old('link', $item->link) ?? '' }}">
-                                                                                </div>
-                                                                                <div class="mb-3 draggable">
-                                                                                    <label
-                                                                                        for="input-text-1">Color</label>
-                                                                                    <input
-                                                                                        class="form-control btn-square"
-                                                                                        id="input-text-1"
-                                                                                        type="text"
-                                                                                        placeholder="Isikan Color"
-                                                                                        name="color"
-                                                                                        value="{{ old('color', $item->color) ?? '' }}">
+                                                                                        placeholder="Isikan Pendidikan"
+                                                                                        name="name"
+                                                                                        value="{{ old('name', $item->name) ?? '' }}">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="modal-footer">
@@ -302,7 +242,7 @@
                                                                                 aria-label="Close"></button>
                                                                         </div>
                                                                         <form
-                                                                            action="{{ route('media.destroy', $item->id) }}"
+                                                                            action="{{ route('jenissyarat.destroy', $item->id) }}"
                                                                             method="POST">
                                                                             @csrf
                                                                             @method('DELETE')

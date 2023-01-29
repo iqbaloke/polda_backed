@@ -91,6 +91,11 @@
                                             data-feather="headphones"></i><span>Galeri</span></a></li>
                                 <li><a class="nav-link menu-title link-nav" href="{{ route('media.index') }}"><i
                                             data-feather="headphones"></i><span>Media</span></a></li>
+                                <li><a class="nav-link menu-title link-nav" href="{{ route('cekumur.index') }}"><i
+                                            data-feather="headphones"></i><span>Cek Umur</span></a></li>
+                                <li><a class="nav-link menu-title link-nav"
+                                        href="{{ route('jenissyarat.index') }}"><i
+                                            data-feather="headphones"></i><span>Jenjang Pendidikan</span></a></li>
                             </ul>
                         </div>
                         <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
