@@ -17,6 +17,9 @@ class CekUmur extends Model
         'min_bulan',
         'max_bulan',
         'min_tanggal',
+        'tahun_sekarang',
+        'bulan_sekarang',
+        'tanggal_sekarang',
         'max_tanggal',
     ];
 

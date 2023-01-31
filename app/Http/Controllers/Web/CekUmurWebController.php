@@ -32,6 +32,9 @@ class CekUmurWebController extends Controller
             'max_bulan' => $request->max_bulan,
             'min_tanggal' => $request->min_tanggal,
             'max_tanggal' => $request->max_tanggal,
+            'tahun_sekarang' => $request->tahun_sekarang,
+            'bulan_sekarang' => $request->bulan_sekarang,
+            'tanggal_sekarang' => $request->tanggal_sekarang,
         ]);
         return back()->with('success', 'Data CekUmur Berhasil Ditambahkan');
     }
@@ -46,6 +49,9 @@ class CekUmurWebController extends Controller
             'max_bulan' => $request->max_bulan,
             'min_tanggal' => $request->min_tanggal,
             'max_tanggal' => $request->max_tanggal,
+            'tahun_sekarang' => $request->tahun_sekarang,
+            'bulan_sekarang' => $request->bulan_sekarang,
+            'tanggal_sekarang' => $request->tanggal_sekarang,
         ]);
         return redirect()
             ->route('cekumur.index')

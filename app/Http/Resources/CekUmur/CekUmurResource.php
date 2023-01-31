@@ -23,6 +23,9 @@ class CekUmurResource extends JsonResource
             'max_bulan' => $this->max_bulan,
             'min_tanggal' => $this->min_tanggal,
             'max_tanggal' => $this->max_tanggal,
+            'tahun_sekarang' => $this->tahun_sekarang,
+            'bulan_sekarang' => $this->bulan_sekarang,
+            'tanggal_sekarang' => $this->tanggal_sekarang,
         ];
     }
 }

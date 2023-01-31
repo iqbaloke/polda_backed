@@ -160,7 +160,15 @@
                                                     </select>
                                                 </div>
                                                 <div class="row d-flex">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
+                                                        <div class="mb-3 draggable">
+                                                            <label for="input-text-1">Tahun Pengecekan</label>
+                                                            <input class="form-control btn-square" id="input-text-1"
+                                                                type="text" placeholder="Isikan Tahun"
+                                                                name="tahun_sekarang">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
                                                         <div class="mb-3 draggable">
                                                             <label for="input-text-1">Min Tahun</label>
                                                             <input class="form-control btn-square" id="input-text-1"
@@ -168,7 +176,7 @@
                                                                 name="min_tahun">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
                                                         <div class="mb-3 draggable">
                                                             <label for="input-text-1">Max Tahun</label>
                                                             <input class="form-control btn-square" id="input-text-1"
@@ -178,7 +186,15 @@
                                                     </div>
                                                 </div>
                                                 <div class="row d-flex">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
+                                                        <div class="mb-3 draggable">
+                                                            <label for="input-text-1">Bulan Pengecekan</label>
+                                                            <input class="form-control btn-square" id="input-text-1"
+                                                                type="text" placeholder="Isikan Bulan"
+                                                                name="bulan_sekarang">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
                                                         <div class="mb-3 draggable">
                                                             <label for="input-text-1">Min Bulan</label>
                                                             <input class="form-control btn-square" id="input-text-1"
@@ -186,7 +202,7 @@
                                                                 name="min_bulan">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
                                                         <div class="mb-3 draggable">
                                                             <label for="input-text-1">Max Bulan</label>
                                                             <input class="form-control btn-square" id="input-text-1"
@@ -196,7 +212,15 @@
                                                     </div>
                                                 </div>
                                                 <div class="row d-flex">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
+                                                        <div class="mb-3 draggable">
+                                                            <label for="input-text-1">Tanggal Sekarang</label>
+                                                            <input class="form-control btn-square" id="input-text-1"
+                                                                type="text" placeholder="Isikan Tanggal"
+                                                                name="tanggal_sekarang">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
                                                         <div class="mb-3 draggable">
                                                             <label for="input-text-1">Min Tanggal</label>
                                                             <input class="form-control btn-square" id="input-text-1"
@@ -204,7 +228,7 @@
                                                                 name="min_tanggal">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4">
                                                         <div class="mb-3 draggable">
                                                             <label for="input-text-1">Max Tanggal</label>
                                                             <input class="form-control btn-square" id="input-text-1"
@@ -250,6 +274,10 @@
                                                             {{ $item->jenisSyarat->name }}
                                                         </td>
                                                         <td>
+                                                            <div>
+                                                                Tahun Pengecekan :
+                                                                {{ $item->tahun_sekarang }}/{{ $item->bulan_sekarang }}/{{ $item->tanggal_sekarang }}
+                                                            </div>
                                                             <div>
                                                                 Min :
                                                                 {{ $item->min_tahun }}/{{ $item->min_bulan }}/{{ $item->min_tanggal }}
@@ -333,7 +361,20 @@
                                                                                     </select>
                                                                                 </div>
                                                                                 <div class="row d-flex">
-                                                                                    <div class="col-md-6">
+                                                                                    <div class="col-md-4">
+                                                                                        <div class="mb-3 draggable">
+                                                                                            <label for="input-text-1">
+                                                                                                Tahun Sekarang</label>
+                                                                                            <input
+                                                                                                class="form-control btn-square"
+                                                                                                id="input-text-1"
+                                                                                                type="text"
+                                                                                                placeholder="Isikan Tahun"
+                                                                                                name="tahun_sekarang"
+                                                                                                value="{{ old('tahun_sekarang', $item->tahun_sekarang) ?? '' }}">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-4">
                                                                                         <div class="mb-3 draggable">
                                                                                             <label
                                                                                                 for="input-text-1">Min
@@ -347,7 +388,7 @@
                                                                                                 value="{{ old('min_tahun', $item->min_tahun) ?? '' }}">
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="col-md-6">
+                                                                                    <div class="col-md-4">
                                                                                         <div class="mb-3 draggable">
                                                                                             <label
                                                                                                 for="input-text-1">Max
@@ -363,7 +404,20 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="row d-flex">
-                                                                                    <div class="col-md-6">
+                                                                                    <div class="col-md-4">
+                                                                                        <div class="mb-3 draggable">
+                                                                                            <label for="input-text-1">
+                                                                                                Bulan Sekarang</label>
+                                                                                            <input
+                                                                                                class="form-control btn-square"
+                                                                                                id="input-text-1"
+                                                                                                type="text"
+                                                                                                placeholder="Isikan Bulan"
+                                                                                                name="bulan_sekarang"
+                                                                                                value="{{ old('bulan_sekarang', $item->bulan_sekarang) ?? '' }}">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-4">
                                                                                         <div class="mb-3 draggable">
                                                                                             <label
                                                                                                 for="input-text-1">Min
@@ -377,7 +431,7 @@
                                                                                                 value="{{ old('min_bulan', $item->min_bulan) ?? '' }}">
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="col-md-6">
+                                                                                    <div class="col-md-4">
                                                                                         <div class="mb-3 draggable">
                                                                                             <label
                                                                                                 for="input-text-1">Max
@@ -393,7 +447,20 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="row d-flex">
-                                                                                    <div class="col-md-6">
+                                                                                    <div class="col-md-4">
+                                                                                        <div class="mb-3 draggable">
+                                                                                            <label for="input-text-1">
+                                                                                                Tanggal Sekarang</label>
+                                                                                            <input
+                                                                                                class="form-control btn-square"
+                                                                                                id="input-text-1"
+                                                                                                type="text"
+                                                                                                placeholder="Isikan Tanggal"
+                                                                                                name="tanggal_sekarang"
+                                                                                                value="{{ old('tanggal_sekarang', $item->tanggal_sekarang) ?? '' }}">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="col-md-4">
                                                                                         <div class="mb-3 draggable">
                                                                                             <label
                                                                                                 for="input-text-1">Min
@@ -407,7 +474,7 @@
                                                                                                 value="{{ old('min_tanggal', $item->min_tanggal) ?? '' }}">
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="col-md-6">
+                                                                                    <div class="col-md-4">
                                                                                         <div class="mb-3 draggable">
                                                                                             <label
                                                                                                 for="input-text-1">Max

@@ -32,6 +32,9 @@ class StoreCheckUmurRequest extends FormRequest
             'max_bulan' => ['required', 'integer'],
             'min_tanggal' => ['required', 'integer'],
             'max_tanggal' => ['required', 'integer'],
+            'tahun_sekarang' => ['required', 'integer'],
+            'bulan_sekarang' => ['required', 'integer'],
+            'tanggal_sekarang' => ['required', 'integer'],
         ];
     }
 }
